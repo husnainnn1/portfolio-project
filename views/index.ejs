@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speedy Bites</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans w-full flex flex-col items-center justify-center min-h-screen">
+
+  <!-- Navbar -->
+  <div class="bg-red-600 text-white shadow-lg w-full py-4">
+    <nav class="max-w-4xl mx-auto text-center">
+      <% if (user) { %>
+        <span class="text-white text-xl mx-4">Welcome, <%= user.firstname.toUpperCase() %></span>
+        <a href="/auth/logout" class="text-white text-xl mx-4 hover:underline transition duration-300">Logout</a>
+        <a href="/menu" class="text-white text-xl mx-4 hover:underline transition duration-300">Menu</a>
+        <a href="/jokes" class="text-white text-xl mx-4 hover:underline transition duration-300">Jokes</a>
+        <a href="/addfood" class="text-white text-xl mx-4 hover:underline transition duration-300">Add Product</a>
+      <% } else { %>
+        <a href="/login" class="text-white text-xl mx-4 hover:underline transition duration-300">Login</a>
+        <a href="/register" class="text-white text-xl mx-4 hover:underline transition duration-300">Register</a>
+      <% } %>
+      <a href="/" class="text-white text-xl mx-4 hover:underline transition duration-300">Home</a>
+      <a href="/about" class="text-white text-xl mx-4 hover:underline transition duration-300">About</a>
+      <a href="/search" class="text-white text-xl mx-4 hover:underline transition duration-300">Search</a>
+      <!-- Added Menu link -->
+    </nav>
+  </div>
+
+  <!-- Main Image -->
+  <div class="w-full mt-6 mb-12">
+    <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg" alt="Main image" class="w-full h-96 object-cover rounded-lg">
+  </div>
+
+  <!-- Posts Container -->
+  <div id="posts-container" class="w-full max-w-4xl px-4">
+    <!-- Posts will be dynamically inserted here -->
+  </div>
+
+</body>
+</html>
