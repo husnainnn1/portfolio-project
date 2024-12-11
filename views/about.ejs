@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- 
+    Meta Information: 
+    - The lang attribute specifies the language of the document.
+    - Meta charset ensures proper text encoding (UTF-8 supports all languages).
+    - Meta viewport makes the layout responsive on different screen sizes.
+    - The title gives a meaningful name to the tab in the browser.
+    - Tailwind CSS is included for utility-based styling. 
+  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Speedy Bites - About Us</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-yellow-50 font-sans">
-  <!-- Navbar -->
+  <!-- 
+    Navbar Section: 
+    - Contains the site logo and navigation links.
+    - Uses Tailwind classes for layout (flexbox), spacing, and colors.
+    - "container" ensures content is centered and limited in width on larger screens.
+  -->
   <header class="bg-red-600 text-white shadow-lg">
     <div class="container mx-auto flex items-center justify-between py-4 px-6">
+      <!-- Brand Name -->
       <h1 class="text-3xl font-bold">Speedy Bites</h1>
+      <!-- Navigation Links -->
       <nav>
         <a href="/" class="text-white hover:underline mx-2">Home</a>
         <a href="/menu" class="text-white hover:underline mx-2">Menu</a>
@@ -20,14 +35,23 @@
     </div>
   </header>
 
-  <!-- About Section -->
+  <!-- 
+    Main Content Section (About Us): 
+    - Provides information about the Speedy Bites brand.
+    - Uses a white background for contrast against the yellow page background.
+    - The "container" class ensures proper spacing and alignment on all screen sizes.
+    - Includes headings and paragraphs with proper styling for readability.
+  -->
   <main class="container mx-auto px-6 py-12">
     <div class="bg-white shadow-md rounded-lg p-8">
+      <!-- Main Heading -->
       <h1 class="text-4xl font-extrabold text-red-600 mb-4">About Speedy Bites</h1>
+      <!-- Description Paragraph 1 -->
       <p class="text-gray-700 text-lg leading-relaxed">
         Welcome to <span class="font-bold text-red-500">Speedy Bites</span>, your ultimate destination for delicious and fast food! We take pride in serving
         freshly made meals that satisfy your cravings in no time. From juicy burgers to crispy fries, we have something for everyone.
       </p>
+      <!-- Description Paragraph 2 -->
       <p class="mt-4 text-gray-700 text-lg leading-relaxed">
         This web application is powered by the latest technologies, including Node.js, Express, EJS, and MySQL. We ensure a seamless experience for our
         customers, both online and offline. Dive into our menu and get ready to savor the flavor!
@@ -35,7 +59,11 @@
     </div>
   </main>
 
-  <!-- Footer -->
+  <!-- 
+    Footer Section: 
+    - Contains a copyright notice.
+    - Uses a centered layout with Tailwind's utility classes for consistent styling.
+  -->
   <footer class="bg-red-600 text-white py-4">
     <div class="container mx-auto text-center">
       <p>&copy; 2024 Speedy Bites. All Rights Reserved.</p>

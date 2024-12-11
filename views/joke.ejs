@@ -1,22 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- 
+    Metadata:
+    - Specifies the document type and sets the language to English.
+    - Meta charset ensures proper text encoding (UTF-8 for universal support).
+    - Meta viewport ensures the page is responsive and scales properly on all devices.
+    - Title defines the page as "Joke."
+    - Tailwind CSS is included for utility-based styling.
+  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joke</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-blue-50 font-sans">
+  <!-- 
+    Body:
+    - Light blue background (`bg-blue-50`) provides a playful and light-hearted tone.
+    - Tailwind's `font-sans` ensures a clean, modern sans-serif font.
+  -->
   <div class="container mx-auto py-10">
+    <!-- 
+      Container:
+      - Centers content horizontally (`mx-auto`) and adds vertical padding (`py-10`).
+      - Ensures the joke is displayed in the middle section of the page.
+    -->
     <h1 class="text-4xl font-extrabold text-center text-blue-700 mb-8">
       Here's a Joke for You!
     </h1>
+    <!-- 
+      Heading:
+      - Large, bold heading (`text-4xl font-extrabold`) to draw attention.
+      - Centered (`text-center`) with a blue color (`text-blue-700`).
+      - Adds bottom margin (`mb-8`) for spacing.
+    -->
+
     <div class="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+      <!-- 
+        Joke Container:
+        - Displays the joke within a white card-like container.
+        - `rounded-lg` adds rounded corners for a modern look.
+        - `shadow-lg` adds a subtle shadow effect to elevate the container visually.
+        - Centered and limited in width (`max-w-2xl mx-auto`) for readability.
+        - `p-8` provides padding inside the container for content spacing.
+      -->
+
       <% if (joke.type === 'single') { %>
+        <!-- 
+          Single Joke Format:
+          - If the joke is a single-line joke, it is displayed in a centered italicized text.
+          - Gray color (`text-gray-800`) ensures contrast against the white background.
+        -->
         <p class="text-lg text-gray-800 italic text-center">
           <%= joke.joke %>
         </p>
       <% } else { %>
+        <!-- 
+          Two-Part Joke Format:
+          - Setup and punchline are displayed with a slight margin between them (`mb-4`).
+          - `text-lg` ensures the text is readable.
+          - Bold blue text (`text-blue-600`) highlights the labels "Setup" and "Punchline."
+        -->
         <p class="text-lg text-gray-700 mb-4">
           <span class="font-bold text-blue-600">Setup:</span> <%= joke.setup %>
         </p>

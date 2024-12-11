@@ -1,50 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <!-- 
+    Metadata:
+    - Specifies the document type and sets the language to English.
+    - Meta charset ensures proper text encoding (UTF-8) for universal character support.
+    - Meta viewport makes the page responsive and scales properly on all devices.
+    - Title describes the page as "Register."
+    - Tailwind CSS is included for utility-based styling.
+  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-50 font-sans flex flex-col items-center justify-center min-h-screen py-8">
+  <!-- 
+    Body:
+    - Light gray background (`bg-gray-50`) creates a clean and subtle aesthetic.
+    - `font-sans` ensures the use of a modern sans-serif font.
+    - Flexbox layout centers the form vertically and horizontally.
+    - `min-h-screen` ensures the body takes up the full height of the viewport.
+    - `py-8` adds padding around the content for spacing.
+  -->
 
+  <!-- Registration Form Container -->
   <div class="bg-white w-full max-w-sm p-6 rounded-xl shadow-lg">
-    <h1 class="text-4xl font-semibold text-center text-gray-800 mb-6">Create an Account</h1>
+    <!-- 
+      Container:
+      - White background (`bg-white`) provides a clean and modern card-style layout.
+      - Width is constrained using `max-w-sm` for readability.
+      - Padding (`p-6`) ensures spacing inside the container.
+      - Rounded corners (`rounded-xl`) and shadow (`shadow-lg`) enhance the visual appeal.
+    -->
 
+    <!-- Heading -->
+    <h1 class="text-4xl font-semibold text-center text-gray-800 mb-6">Create an Account</h1>
+    <!-- 
+      Heading:
+      - Large, bold text (`text-4xl font-semibold`) draws attention to the purpose of the page.
+      - Centered alignment (`text-center`) and dark gray color (`text-gray-800`) ensure readability.
+      - Bottom margin (`mb-6`) separates the heading from the form.
+    -->
+
+    <!-- Registration Form -->
     <form action="/auth/register" method="POST">
+      <!-- First Name Field -->
       <div class="mb-4">
+        <!-- Label -->
         <label for="firstname" class="block text-sm font-medium text-gray-700">First Name</label>
+        <!-- Input -->
         <input type="text" id="firstname" name="firstname" required
           class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg" />
+        <!-- 
+          Input Field:
+          - Full-width (`w-full`) with padding (`px-4 py-2`) for user comfort.
+          - Border styling (`border-gray-300`) provides a subtle outline.
+          - Rounded corners (`rounded-md`) for a modern look.
+          - Focus effects (`focus:ring-2 focus:ring-blue-500`) enhance accessibility.
+        -->
       </div>
 
+      <!-- Last Name Field -->
       <div class="mb-4">
         <label for="lastname" class="block text-sm font-medium text-gray-700">Last Name</label>
         <input type="text" id="lastname" name="lastname" required
           class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg" />
       </div>
 
+      <!-- Username Field -->
       <div class="mb-4">
         <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
         <input type="text" id="username" name="username" required
           class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg" />
       </div>
 
+      <!-- Password Field -->
       <div class="mb-6">
         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
         <input type="password" id="password" name="password" required
           class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg" />
+        <!-- 
+          Password Field:
+          - Similar to other input fields for consistent design.
+          - `mb-6` adds extra spacing between the password field and the submit button.
+        -->
       </div>
 
-      <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg">
+      <!-- Submit Button -->
+      <button type="submit"
+        class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg">
         Register
       </button>
+      <!-- 
+        Button:
+        - Full-width (`w-full`) for emphasis.
+        - Blue background (`bg-blue-500`) with a hover effect (`hover:bg-blue-600`).
+        - Focus effects (`focus:ring-2 focus:ring-blue-500`) for accessibility.
+        - Rounded corners (`rounded-md`) match the input fields for consistency.
+      -->
     </form>
 
+    <!-- Footer with Login Link -->
     <div class="mt-4 text-center text-sm text-gray-600">
       <p>Already have an account? <a href="/login" class="text-blue-500 hover:underline">Login</a></p>
+      <!-- 
+        Footer Text:
+        - Encourages users to login if they already have an account.
+        - The login link (`<a>`) is styled with blue color and underline on hover for visibility.
+      -->
     </div>
   </div>
 
 </body>
+
 </html>

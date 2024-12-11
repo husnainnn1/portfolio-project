@@ -1,35 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- 
+    Metadata:
+    - Specifies the document type and sets the language to English.
+    - Meta charset ensures proper text encoding (UTF-8) for universal character support.
+    - Meta viewport ensures the page scales and adapts properly on all devices.
+    - Title sets the page name displayed on the browser tab as "Login."
+    - Tailwind CSS is included for utility-based styling.
+  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex justify-center items-center h-screen">
 
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+  <!-- 
+    Body:
+    - Light gray background (`bg-gray-100`) creates a neutral and clean aesthetic.
+    - `flex justify-center items-center` centers the content both horizontally and vertically.
+    - `h-screen` ensures the body takes up the full height of the viewport.
+  -->
+
+  <!-- Login Form Container -->
   <div class="bg-white w-full max-w-sm p-8 rounded-lg shadow-lg">
+    <!-- 
+      Container:
+      - White background (`bg-white`) for a card-like appearance.
+      - `max-w-sm` limits the width to a small, readable size.
+      - Padding (`p-8`) and rounded corners (`rounded-lg`) enhance the design.
+      - Shadow (`shadow-lg`) adds depth and separates the card from the background.
+    -->
+
+    <!-- Heading -->
     <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6">Fast Food Restaurants</h1>
-    
+    <!-- 
+      Heading:
+      - Bold, large text (`text-3xl font-semibold`) for prominence.
+      - Centered (`text-center`) and uses a dark gray color (`text-gray-800`) for contrast.
+      - Bottom margin (`mb-6`) adds spacing between the heading and the form.
+    -->
+
+    <!-- Login Form -->
     <form action="/auth/login" method="POST">
+      <!-- 
+        Username Input:
+        - Label describes the field's purpose.
+        - Input field styled with padding (`px-4 py-2`), a border, and focus effects for interactivity.
+        - Margin-bottom (`mb-4`) creates spacing between form fields.
+      -->
       <div class="mb-4">
         <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
         <input type="text" id="username" name="username" required
           class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
       </div>
 
+      <!-- 
+        Password Input:
+        - Similar structure and styling to the username input.
+        - Additional margin-bottom (`mb-6`) for spacing below the password field.
+      -->
       <div class="mb-6">
         <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
         <input type="password" id="password" name="password" required
           class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
       </div>
 
+      <!-- Submit Button -->
       <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
         Login
       </button>
+      <!-- 
+        Button:
+        - Full-width button (`w-full`) for prominence.
+        - Blue background (`bg-blue-500`) and hover effect (`hover:bg-blue-600`) enhance interactivity.
+        - Rounded corners (`rounded-md`) match the input fields for consistency.
+        - Focus effects (`focus:outline-none` and `focus:ring-2`) improve accessibility.
+      -->
     </form>
 
+    <!-- Register Link -->
     <div class="mt-4 text-center text-sm text-gray-600">
+      <!-- 
+        Footer Text:
+        - Text encourages the user to register if they don’t have an account.
+        - Link styled with blue color (`text-blue-500`) and underline on hover (`hover:underline`).
+        - Small font size (`text-sm`) and centered alignment (`text-center`).
+      -->
       <p>Don't have an account? <a href="/register" class="text-blue-500 hover:underline">Register</a></p>
     </div>
   </div>

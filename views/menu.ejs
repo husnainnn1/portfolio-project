@@ -2,6 +2,14 @@
 <html lang="en">
 
 <head>
+  <!-- 
+    Metadata:
+    - Specifies the document type and sets the language to English.
+    - Meta charset ensures proper text encoding (UTF-8) for universal character support.
+    - Meta viewport ensures the page is responsive and scales properly on all devices.
+    - Title provides a meaningful name for the page displayed in the browser tab.
+    - Tailwind CSS is included for utility-based styling.
+  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu - Our Delicious Offerings</title>
@@ -9,17 +17,33 @@
 </head>
 
 <body class="bg-gray-100 font-sans w-full flex flex-col items-center justify-center min-h-screen">
+  <!-- 
+    Body:
+    - Light gray background (`bg-gray-100`) creates a clean and neutral design.
+    - Tailwind's `font-sans` ensures the use of a modern sans-serif font.
+    - Flexbox layout centers the content vertically and horizontally.
+    - `min-h-screen` ensures the content takes up at least the full height of the viewport.
+  -->
 
-  <!-- Navbar -->
+  <!-- Navbar Section -->
   <div class="bg-red-600 text-white shadow-lg w-full py-4">
+    <!-- 
+      Navbar:
+      - Full-width navigation bar with a red background (`bg-red-600`) and white text.
+      - Shadow (`shadow-lg`) adds depth to the navbar.
+      - Links are centered using `text-center` and styled with hover and transition effects.
+    -->
     <nav class="max-w-4xl mx-auto text-center">
       <% if (user) { %>
+        <!-- Logged-in User View -->
         <span class="text-white text-xl mx-4">Welcome, <%= user.username[0].toUpperCase() %></span>
         <a href="/auth/logout" class="text-white text-xl mx-4 hover:underline transition duration-300">Logout</a>
       <% } else { %>
+        <!-- Guest User View -->
         <a href="/login" class="text-white text-xl mx-4 hover:underline transition duration-300">Login</a>
         <a href="/register" class="text-white text-xl mx-4 hover:underline transition duration-300">Register</a>
       <% } %>
+      <!-- Common Links -->
       <a href="/" class="text-white text-xl mx-4 hover:underline transition duration-300">Home</a>
       <a href="/about" class="text-white text-xl mx-4 hover:underline transition duration-300">About</a>
       <a href="/search" class="text-white text-xl mx-4 hover:underline transition duration-300">Search</a>
@@ -27,28 +51,75 @@
     </nav>
   </div>
 
-  <!-- Main Image -->
+  <!-- Main Image Section -->
   <div class="w-full mt-6 mb-12">
+    <!-- 
+      Main Image:
+      - A featured image to highlight the page.
+      - Full width (`w-full`) with a fixed height (`h-96`) and rounded corners (`rounded-lg`).
+      - The image is styled with `object-cover` to maintain its aspect ratio and fill the container.
+    -->
     <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg" alt="Main image"
       class="w-full h-96 object-cover rounded-lg">
   </div>
 
-  <!-- Menu Page (Products Section) -->
+  <!-- Menu Section -->
   <div id="menu-container" class="w-full max-w-6xl px-4">
+    <!-- 
+      Container:
+      - Centers the menu content and constrains its width (`max-w-6xl`) for readability.
+      - Adds padding on the sides (`px-4`) for consistent spacing.
+    -->
     <h2 class="text-3xl font-bold mb-6 text-center">Our Menu</h2>
+    <!-- 
+      Heading:
+      - Bold and large text (`text-3xl font-bold`) with bottom margin (`mb-6`) for spacing.
+      - Centered to draw attention to the section.
+    -->
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Dynamically render the cards for each fast food item -->
+      <!-- 
+        Menu Grid:
+        - Uses a responsive grid layout to display the menu items.
+        - Single column on small screens, two columns on medium screens, and three columns on large screens.
+        - Gaps between grid items are set using `gap-6`.
+      -->
       <% fastFoods.forEach((food) => { %>
+        <!-- Card for Each Menu Item -->
         <div class="card bg-white shadow-md rounded-lg p-4">
+          <!-- 
+            Menu Item Card:
+            - Displays individual menu items in a card-style layout.
+            - White background (`bg-white`) and shadow effect (`shadow-md`) for separation.
+            - Padding (`p-4`) and rounded corners (`rounded-lg`) improve visual aesthetics.
+          -->
           <img src="<%= food.image %>" alt="<%= food.title %>" class="w-full h-56 object-cover rounded-lg mb-4">
+          <!-- 
+            Menu Item Image:
+            - Displays the food image with a fixed height (`h-56`) and rounded corners.
+            - Bottom margin (`mb-4`) separates the image from the text content.
+          -->
           <h3 class="text-xl font-semibold mb-2"><%= food.title %></h3>
+          <!-- 
+            Menu Item Title:
+            - Bold and slightly larger text (`text-xl font-semibold`) for emphasis.
+            - Bottom margin (`mb-2`) separates the title from the description.
+          -->
           <p class="text-gray-600 mb-4"><%= food.content %></p>
+          <!-- 
+            Menu Item Description:
+            - Text styled with `text-gray-600` for subtle contrast against the white background.
+            - Bottom margin (`mb-4`) adds spacing between the description and the price.
+          -->
           <p class="text-gray-900 font-semibold">$<%= food.price %></p>
+          <!-- 
+            Menu Item Price:
+            - Darker text color (`text-gray-900`) with bold font (`font-semibold`) to emphasize the price.
+          -->
         </div>
       <% }) %>
     </div>
   </div>
-
 </body>
 
 </html>

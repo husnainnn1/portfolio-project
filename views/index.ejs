@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--
+    Metadata:
+    - Specifies the document type and sets the language to English.
+    - Meta charset ensures proper text encoding (UTF-8 for universal support).
+    - Meta viewport makes the page responsive on all devices.
+    - Title defines the page name displayed in the browser tab.
+    - Tailwind CSS is included for styling using utility classes.
+  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Speedy Bites</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans w-full flex flex-col items-center justify-start min-h-screen">
 
-  <!-- Navbar -->
+<body class="bg-gray-100 font-sans w-full flex flex-col items-center justify-start min-h-screen">
+  <!--
+    Body:
+    - The body has a light gray background (`bg-gray-100`) for a neutral base.
+    - Uses `flex` to position content vertically with a column layout.
+    - `justify-start` aligns content to the top of the screen.
+    - `min-h-screen` ensures the page takes at least the full height of the viewport.
+  -->
+
+  <!-- Navbar Section -->
   <div class="bg-red-600 text-white shadow-lg w-full py-4">
+    <!--
+      Navbar:
+      - Full-width red background (`bg-red-600`) with white text for branding.
+      - The shadow adds a subtle elevation effect.
+      - Contains navigation links centered inside a max-width container.
+    -->
     <nav class="max-w-4xl mx-auto text-center">
+      <!-- Conditional Rendering (using templating): -->
+      <!-- Logged-in User View -->
       <% if (user) { %>
         <span class="text-white text-xl mx-4">Welcome, <%= user.firstname.toUpperCase() %></span>
         <a href="/auth/logout" class="text-white text-xl mx-4 hover:underline transition duration-300">Logout</a>
@@ -18,20 +42,34 @@
         <a href="/jokes" class="text-white text-xl mx-4 hover:underline transition duration-300">Jokes</a>
         <a href="/addfood" class="text-white text-xl mx-4 hover:underline transition duration-300">Add Product</a>
       <% } else { %>
+        <!-- Guest User View -->
         <a href="/login" class="text-white text-xl mx-4 hover:underline transition duration-300">Login</a>
         <a href="/register" class="text-white text-xl mx-4 hover:underline transition duration-300">Register</a>
       <% } %>
+      <!-- Common Links -->
       <a href="/" class="text-white text-xl mx-4 hover:underline transition duration-300">Home</a>
       <a href="/about" class="text-white text-xl mx-4 hover:underline transition duration-300">About</a>
       <a href="/search" class="text-white text-xl mx-4 hover:underline transition duration-300">Search</a>
-      <!-- Added Menu link -->
     </nav>
   </div>
 
+  <!-- Hero Section -->
   <div class="w-full flex flex-col items-center mt-8">
+    <!--
+      Main Heading:
+      - Prominently displays the name "Speedy Bites."
+      - Styled with bold, large text (`text-6xl`) and red color (`text-red-600`).
+      - Adds bottom margin (`mb-6`) for spacing.
+    -->
     <h1 class="text-6xl font-extrabold text-red-600 mb-6">
       Speedy Bites
     </h1>
+    <!--
+      Main Image:
+      - Displays a featured burger image to entice users.
+      - Styled with full width (`w-full`), fixed height (`h-96`), and `object-cover` to maintain aspect ratio.
+      - Adds rounded corners (`rounded-lg`) and a shadow effect (`shadow-lg`).
+    -->
     <div class="w-full max-w-4xl px-4">
       <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg" 
            alt="Delicious Burger" 
@@ -39,9 +77,14 @@
     </div>
   </div>
 
-  <!-- Posts Container -->
+  <!-- Posts Section -->
   <div id="posts-container" class="w-full max-w-4xl px-4">
-    <!-- Posts will be dynamically inserted here -->
+    <!--
+      Posts Container:
+      - This section is reserved for dynamically inserted posts (e.g., blog entries or menu items).
+      - `id="posts-container"` acts as a target for JavaScript to manipulate and insert content.
+      - Ensures proper spacing and alignment using `max-w-4xl` for width and `px-4` for padding.
+    -->
   </div>
 
 </body>
