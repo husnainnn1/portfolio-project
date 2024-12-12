@@ -1,22 +1,22 @@
 {
   "development": {
-    "username": "bettys_books_app",
-    "password": "qwertyuiop",
-    "database": "bettys_books",
+    "username": "root",
+    "password": "Abdulhadi123",
+    "database": "project_food",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "bettys_books_app",
-    "password": "qwertyuiop",
-    "database": "bettys_books",
+    "username": "root",
+    "password": "Abdulhadi123",
+    "database": "project_food",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "bettys_books_app",
-    "password": "qwertyuiop",
-    "database": "bettys_books",
+    "username": "root",
+    "password": "Abdulhadi123",
+    "database": "project_food",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

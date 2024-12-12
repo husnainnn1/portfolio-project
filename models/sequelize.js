@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 
 // Create the Sequelize instance with your database connection details
-const sequelize = new Sequelize('bettys_books', 'bettys_books_app', 'qwertyuiop', {
+const sequelize = new Sequelize('project_food', 'root', 'Abdulhadi123', {
   host: 'localhost',
   dialect: 'mysql',
 });
