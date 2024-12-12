@@ -61,7 +61,7 @@ router.get('/logout', (req, res) => {
         if (err) {
             return res.status(500).send('Error logging out');
         }
-        res.redirect('/');
+        res.redirect('https://www.doc.gold.ac.uk/usr/378/');
     });
 });
 
