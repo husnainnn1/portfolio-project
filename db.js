@@ -7,7 +7,7 @@ const mysql = require('mysql2');
 //  database: process.env.DB_NAME || 'project_food',
 //});
 
-const db = mysql.createConnection ({
+const connection = mysql.createConnection ({
   host: 'localhost',
   user: 'bettys_books_app',
   password: 'qwertyuiop',
