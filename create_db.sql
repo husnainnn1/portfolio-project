@@ -53,6 +53,10 @@ CREATE TABLE FastFoods (
   updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+-- # Create the app user
+-- CREATE USER IF NOT EXISTS 'msoha001'@'localhost' IDENTIFIED BY 'abcd'; 
+-- GRANT ALL PRIVILEGES ON project_food.* TO ' msoha001'@'localhost';
+
 # Create the app user
-CREATE USER IF NOT EXISTS 'msoha001'@'localhost' IDENTIFIED BY 'abcd'; 
-GRANT ALL PRIVILEGES ON project_food.* TO ' msoha001'@'localhost';
+CREATE USER IF NOT EXISTS 'bettys_books_app'@'localhost' IDENTIFIED BY 'qwertyuiop'; 
+GRANT ALL PRIVILEGES ON bettys_books.* TO ' bettys_books_app'@'localhost';
