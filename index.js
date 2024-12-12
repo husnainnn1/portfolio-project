@@ -39,9 +39,18 @@ app.use('/posts', require('./routes/api'));
 // Authentication routes.
 app.use('/auth', require('./routes/auth')); 
 // Search functionality routes.
-app.use('/search', require('./routes/search')); 
+//app.use('/search', require('./routes/search')); 
 // Render search page.
-app.use('/search', (req, res) => res.render('search')); 
+//app.use('/search', (req, res) => res.render('search')); 
+
+// Route to render search page (GET request)
+app.get('/search', (req, res) => {
+  res.render('search', { results: [] }); // Render the page with an empty results array
+});
+
+// Route to handle search form submission (POST request)
+app.use('/search', require('./routes/search'));
+
 // Render add food page.
 app.use('/addfood', (req, res) => res.render('food')); 
 // Render login page.
