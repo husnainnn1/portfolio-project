@@ -1,6 +1,6 @@
 const { sequelize, DataTypes } = require('./sequelize');
 
-const User = sequelize.define('user', {
+const User = sequelize.define('User', {
   // Define columns for the `users` table
   username: {
     type: DataTypes.STRING(50),
@@ -21,4 +21,4 @@ const User = sequelize.define('user', {
   },
 });
 
-module.exports = user;
+module.exports = User;
