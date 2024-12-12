@@ -52,3 +52,7 @@ CREATE TABLE FastFoods (
   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+# Create the app user
+CREATE USER IF NOT EXISTS 'root'@'localhost' IDENTIFIED BY 'Abdulhadi123'; 
+GRANT ALL PRIVILEGES ON project_food.* TO ' root'@'localhost';

@@ -66,4 +66,4 @@ app.get('/menu', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 8000; 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)); // Start server.
+app.listen(PORT, () => console.log(`Node app listening on port ${PORT}`)); // Start server.

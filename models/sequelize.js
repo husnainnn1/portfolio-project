@@ -9,7 +9,7 @@ const sequelize = new Sequelize('project_food', 'root', 'Abdulhadi123', {
 // Test the database connection
 sequelize.authenticate()
   .then(() => {
-    console.log('Connection has been established successfully.');
+    console.log('Connected to the database.');
   })
   .catch((err) => {
     console.error('Unable to connect to the database:', err);
