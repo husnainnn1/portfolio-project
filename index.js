@@ -1,65 +1,69 @@
-require('dotenv').config();
-const express = require('express');
-const session = require('express-session');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
-const fastFoodRoutes = require('./routes/fastFood');
-const db = require('./db');
-const FastFood =require('./models/fastFood');
-const jokeRouter = require('./routes/joke');
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
+require('dotenv').config(); 
+const express = require('express'); // Import Express framework.
+const session = require('express-session'); // Import session management.
+const bodyParser = require('body-parser'); // Parse incoming request bodies.
+const bcrypt = require('bcryptjs'); // For hashing passwords.
+const fastFoodRoutes = require('./routes/fastFood'); // Fast food routes.
+const db = require('./db'); // Database configuration.
+const FastFood = require('./models/fastFood'); // FastFood model.
+const jokeRouter = require('./routes/joke'); // Joke routes.
+const multer = require('multer'); // Middleware for handling file uploads.
+const upload = multer({ dest: 'uploads/' }); // Configure file upload destination.
 
-const app = express();
+const app = express(); // Initialize Express app.
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
-app.set('view engine', 'ejs');
-app.use(express.json());
- 
+app.use(bodyParser.urlencoded({ extended: true })); // Middleware for URL-encoded data.
+app.use(express.static('public')); // Serve static files from "public" directory.
+app.set('view engine', 'ejs'); // Set EJS as the view engine.
+app.use(express.json()); // Parse incoming JSON payloads.
+
 app.use(
   session({
-    secret: 'simpleSecret',
-    resave: false,
-    saveUninitialized: true,
+    secret: 'simpleSecret', // Secret for signing session ID cookie.
+    resave: false, // Don't save session if not modified.
+    saveUninitialized: true, // Save uninitialized sessions.
   })
 );
 
 app.get('/', (req, res) => {
-    // Pass the session user to EJS
-    res.render('index', { user: req.session.user });
+  res.render('index', { user: req.session.user }); // Render homepage with user session.
 });
-app.get('/about', (req, res) => res.render('about'));
-app.use('/jokes', jokeRouter);
-app.use('/fastfood', fastFoodRoutes);
-app.use('/posts',require('./routes/api'))
-app.use('/auth', require('./routes/auth'));
-app.use('/search', require('./routes/search'));
-app.use('/search',(req,res)=>res.render('search'))
-app.use('/addfood',(req,res)=>res.render('food'))
-app.get('/login', (req, res) => res.render('login'));
-app.get('/register', (req, res) => res.render('register'));
+// Render "About" page.
+app.get('/about', (req, res) => res.render('about')); 
+// Use joke routes.
+app.use('/jokes', jokeRouter); 
+// Use fast food routes.
+app.use('/fastfood', fastFoodRoutes); 
+// API routes for posts.
+app.use('/posts', require('./routes/api')); 
+// Authentication routes.
+app.use('/auth', require('./routes/auth')); 
+// Search functionality routes.
+app.use('/search', require('./routes/search')); 
+// Render search page.
+app.use('/search', (req, res) => res.render('search')); 
+// Render add food page.
+app.use('/addfood', (req, res) => res.render('food')); 
+// Render login page.
+app.get('/login', (req, res) => res.render('login')); 
+// Render registration page.
+app.get('/register', (req, res) => res.render('register')); 
 app.get('/menu', async (req, res) => {
-    try {
-      // Fetch fast food items from the database
-      const fastFoodItems = await FastFood.findAll({
-        attributes: ['id', 'title', 'content', 'price', 'stock', 'image', 'createdAt', 'updatedAt']
-      });
-  
-      // You can pass other data as needed (like user data from session)
-      const user = req.session.user || null;  // or any other method of retrieving the logged-in user
-  
-      // Render the view and pass the correct data
-      res.render('menu', { fastFoods: fastFoodItems, user });
-    } catch (error) {
-      console.error('Error fetching fast food items:', error);
-      res.status(500).send('Error loading menu.');
-    }
-  });
+  try {
+    const fastFoodItems = await FastFood.findAll({
+      // Fetch all fast food items with specific attributes.
+      attributes: ['id', 'title', 'content', 'price', 'stock', 'image', 'createdAt', 'updatedAt'],
+    });
+    // Get logged-in user from session.
+    const user = req.session.user || null; 
+    // Render menu page with items and user data.
+    res.render('menu', { fastFoods: fastFoodItems, user }); 
+  } catch (error) {
+    // Log errors.
+    console.error('Error fetching fast food items:', error); 
+    res.status(500).send('Error loading menu.'); 
+  }
+});
 
-  
-  
-//http://localhost:8000/fastfood/getfast
-
-const PORT = process.env.PORT || 8000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+const PORT = process.env.PORT || 8000; 
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)); // Start server.
