@@ -11,6 +11,7 @@ CREATE TABLE users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- Last updated timestamp
 );
 
+
 CREATE TABLE posts (
     id INT AUTO_INCREMENT PRIMARY KEY,   -- Unique identifier for each post
     title VARCHAR(100) NOT NULL,         -- Title of the post, must not be null
@@ -52,6 +53,8 @@ CREATE TABLE FastFoods (
   createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+RENAME TABLE users TO Users;
 
 # Create the app user
 CREATE USER IF NOT EXISTS 'food_user_app'@'localhost' IDENTIFIED BY 'Abdulhadi123'; 
