@@ -1,15 +1,15 @@
 const express = require('express');
-const db = require('../db');
+const db = require('../db'); // Assuming you have a database connection file
 const router = express.Router();
-
 
 // Search Fast Foods (POST request to handle search)
 router.post('/', async (req, res) => {
   try {
     const searchQuery = `%${req.body.query}%`; // Use the search term entered by the user
 
+    // Perform the database query
     db.query(
-      'SELECT * FROM fastfoods WHERE title LIKE ? OR content LIKE ?',
+      'SELECT * FROM fast_foods WHERE title LIKE ? OR content LIKE ?',
       [searchQuery, searchQuery], // Search in both title and content fields
       (err, results) => {
         if (err) {
@@ -17,7 +17,8 @@ router.post('/', async (req, res) => {
           return res.status(500).send('Internal Server Error');
         }
 
-        res.render('search', { results }); // Pass the search results to the 'search' view
+        // Pass the results to the EJS template
+        res.render('search', { results }); // 'results' is passed to the 'search.ejs' view
       }
     );
   } catch (error) {
