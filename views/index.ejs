@@ -35,8 +35,8 @@
     <nav class="max-w-4xl mx-auto text-center">
       <!-- Conditional Rendering (using templating): -->
       <!-- Logged-in User View -->
-      <% if (user) { %>
-        <span class="text-white text-xl mx-4">Welcome, <%= user.firstname.toUpperCase() %></span>
+      <% if (User) { %>
+        <span class="text-white text-xl mx-4">Welcome, <%= User.firstname.toUpperCase() %></span>
         <a href="/auth/logout" class="text-white text-xl mx-4 hover:underline transition duration-300">Logout</a>
         <a href="/menu" class="text-white text-xl mx-4 hover:underline transition duration-300">Menu</a>
         <a href="/jokes" class="text-white text-xl mx-4 hover:underline transition duration-300">Jokes</a>
