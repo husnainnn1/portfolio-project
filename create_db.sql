@@ -54,5 +54,5 @@ CREATE TABLE FastFoods (
 );
 
 # Create the app user
-CREATE USER IF NOT EXISTS 'root'@'localhost' IDENTIFIED BY 'abcd'; 
-GRANT ALL PRIVILEGES ON project_food.* TO ' root'@'localhost';
+CREATE USER IF NOT EXISTS 'msoha001'@'localhost' IDENTIFIED BY 'abcd'; 
+GRANT ALL PRIVILEGES ON project_food.* TO ' msoha001'@'localhost';

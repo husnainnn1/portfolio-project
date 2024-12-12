@@ -1,20 +1,20 @@
 {
   "development": {
-    "username": "root",
+    "username": "msoha001",
     "password": "abcd",
     "database": "project_food",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "Abdulhadi123",
+    "username": "msoha001",
+    "password": "abcd",
     "database": "project_food",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
+    "username": "msoha001",
     "password": "abcd",
     "database": "project_food",
     "host": "127.0.0.1",
