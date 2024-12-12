@@ -49,7 +49,7 @@ router.post('/login', async (req, res) => {
   
       // Start session and save user info
       req.session.user = user; 
-      res.render('index'); 
+      res.redirect('https://www.doc.gold.ac.uk/usr/378/'); 
     } catch (error) {
       res.status(500).send('Error logging in');
     }
