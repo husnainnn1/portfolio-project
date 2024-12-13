@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
 
     // Perform the database query
     db.query(
-      'SELECT * FROM fast_foods WHERE title LIKE ? OR content LIKE ?',
+      'SELECT * FROM FastFoods WHERE title LIKE ? OR content LIKE ?',
       [searchQuery, searchQuery], // Search in both title and content fields
       (err, results) => {
         if (err) {
