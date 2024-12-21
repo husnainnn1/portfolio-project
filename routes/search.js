@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('../db'); // Assuming you have a database connection file
 const router = express.Router();
 const bodyParser = require('body-parser');
+const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var appData = {RestauramtName: "Speedy Bites"}
