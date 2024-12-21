@@ -25,8 +25,8 @@
     <!-- Search Results -->
     <div class="max-h-96 overflow-y-auto">
       <ul class="space-y-4">
-        <% if (existingTitle && existingTitle.length > 0) { %>
-          <% existingTitle.forEach(food => { %>
+        <% if (results.length > 0) { %>
+          <% resuls.forEach(food => { %>
             <li class="p-4 bg-gray-100 rounded-lg shadow-sm hover:bg-blue-50">
               <strong class="text-xl font-semibold text-gray-700"><%= food.title %></strong>
               <p class="mt-2 text-gray-600 text-base"><%= food.content %></p>
