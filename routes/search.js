@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var appData = {RestauramtName: "Speedy Bites"}
 
 // Search Fast Foods (POST request to handle search)
-/*  router.post('/', async (req, res) => {
+ router.post('/', async (req, res) => {
     try {
       const searchQuery = `%${req.query.keyword}%`; // Use the search term entered by the user
 
@@ -31,10 +31,10 @@ var appData = {RestauramtName: "Speedy Bites"}
       res.status(500).send('Internal Server Error');
     }
   });
-*/
+
 
 //search result for extension search-topics
-router.post('/', function (req, res) {
+/*router.post('/', function (req, res) {
   // Extract the query keyword from the POST body
   const keyword = req.body.query;
   //searching in the database
@@ -50,7 +50,7 @@ router.post('/', function (req, res) {
       console.log(newData)
       res.render("search.ejs", newData)
   });
-});
+});*/
 
 
 module.exports = router;
