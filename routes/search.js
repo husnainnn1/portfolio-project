@@ -2,6 +2,8 @@ const express = require('express');
 const db = require('../db'); // Assuming you have a database connection file
 const router = express.Router();
 
+var appData = {RestauramtName: "Speedy Bites"}
+
 // Search Fast Foods (POST request to handle search)
 /*  router.post('/', async (req, res) => {
     try {
