@@ -12,6 +12,8 @@ const upload = multer({ dest: 'uploads/' }); // Configure file upload destinatio
 
 const app = express(); // Initialize Express app.
 
+var appData = {RestauramtName: "Speedy Bites"}
+
 app.use(bodyParser.urlencoded({ extended: true })); // Middleware for URL-encoded data.
 app.use(express.static('public')); // Serve static files from "public" directory.
 app.set('view engine', 'ejs'); // Set EJS as the view engine.

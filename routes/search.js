@@ -3,7 +3,7 @@ const db = require('../db'); // Assuming you have a database connection file
 const router = express.Router();
 
 // Search Fast Foods (POST request to handle search)
-  router.post('/', async (req, res) => {
+/*  router.post('/', async (req, res) => {
     try {
       const searchQuery = `%${req.query.keyword}%`; // Use the search term entered by the user
 
@@ -26,5 +26,23 @@ const router = express.Router();
       res.status(500).send('Internal Server Error');
     }
   });
+*/
+
+//search result for extension search-topics
+router.post('/search', function (req, res) {
+  //searching in the database
+  let sqlquery = `SELECT * FROM FastFoods WHERE title LIKE '%${req.query.keyword}%'`;
+  //execute code
+  db.query(sqlquery, (err, result) => {
+      if(err){
+          //if code doesn't run it'll run this 
+          return res.redirect("./")
+      }
+      let newData = Object.assign({}, appData, {existingTitle:result});
+      console.log(newData)
+      res.render("search.ejs", newData)
+  });
+});
+
 
 module.exports = router;
