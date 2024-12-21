@@ -31,9 +31,11 @@ var appData = {RestauramtName: "Speedy Bites"}
 */
 
 //search result for extension search-topics
-router.get('/', function (req, res) {
+router.post('/', function (req, res) {
+  // Extract the query keyword from the POST body
+  const keyword = req.body.query;
   //searching in the database
-  let sqlquery = `SELECT * FROM FastFoods WHERE title LIKE '%${req.query.keyword}%'`;
+  let sqlquery = `SELECT * FROM FastFoods WHERE title LIKE '%${keyword}%'`;
   //execute code
   db.query(sqlquery, (err, result) => {
       if(err){
