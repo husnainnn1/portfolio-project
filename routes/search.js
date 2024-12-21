@@ -34,7 +34,7 @@ var appData = {RestauramtName: "Speedy Bites"}
 */
 
 //search result for extension search-topics
-router.post('/', function (req, res) {
+/*router.post('/', function (req, res) {
   // Extract the query keyword from the POST body
   const keyword = req.body.query;
   //searching in the database
@@ -49,6 +49,29 @@ router.post('/', function (req, res) {
       const newData = Object.assign({}, appData, {existingTitle:result || []});
       console.log(newData)
       res.render("search.ejs", newData)
+  });
+});*/
+
+router.post('/', function (req, res) {
+  const keyword = req.body.query; // Extract 'query' from POST body
+
+  // SQL query to search for fast food
+  const sqlquery = `SELECT * FROM FastFoods WHERE title LIKE '%${keyword}%'`;
+
+  db.query(sqlquery, (err, result) => {
+    if (err) {
+      console.error("Database query error:", err);
+      return res.redirect("/"); // Redirect on error
+    }
+
+    console.log("Database query result:", result); // Log query results for debugging
+
+    // Pass 'existingTitle' to the EJS template
+    const newData = {
+      ...appData, // Include app-specific data
+      existingTitle: result || [] // Ensure result is an array
+    };
+    res.render("search.ejs", newData); // Render EJS with newData
   });
 });
 
