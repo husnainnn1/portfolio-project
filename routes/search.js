@@ -71,6 +71,12 @@ router.post('/', function (req, res) {
       ...appData, // Include app-specific data
       existingTitle: result || [] // Ensure result is an array
     };
+    res.render("search.ejs", {
+      existingTitle: [
+        { title: 'Pizza', content: 'Cheesy pizza', price: 10, stock: 5, image: 'pizza.jpg' },
+        { title: 'Burger', content: 'Juicy burger', price: 8, stock: 3, image: 'burger.jpg' }
+      ]
+    });
     res.render("search.ejs", newData); // Render EJS with newData
   });
 });
