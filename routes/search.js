@@ -29,7 +29,7 @@ const router = express.Router();
 */
 
 //search result for extension search-topics
-router.post('/search', function (req, res) {
+router.post('/', function (req, res) {
   //searching in the database
   let sqlquery = `SELECT * FROM FastFoods WHERE title LIKE '%${req.query.keyword}%'`;
   //execute code
