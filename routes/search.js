@@ -1,6 +1,8 @@
 const express = require('express');
 const db = require('../db'); // Assuming you have a database connection file
 const router = express.Router();
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
 
 var appData = {RestauramtName: "Speedy Bites"}
 
@@ -39,10 +41,11 @@ router.post('/', function (req, res) {
   //execute code
   db.query(sqlquery, (err, result) => {
       if(err){
+        console.error("Database query error:", err);
           //if code doesn't run it'll run this 
           return res.redirect("./")
       }
-      let newData = Object.assign({}, appData, {existingTitle:result});
+      const newData = Object.assign({}, appData, {existingTitle:result || []});
       console.log(newData)
       res.render("search.ejs", newData)
   });
