@@ -10,7 +10,7 @@ var appData = {RestauramtName: "Speedy Bites"}
 // Search Fast Foods (POST request to handle search)
  router.post('/', async (req, res) => {
     try {
-      const searchQuery = `%${req.query.keyword}%`; // Use the search term entered by the user
+      const searchQuery = `%${req.body.keyword}%`; // Use the search term entered by the user
 
       // Perform the database query
       db.query(
