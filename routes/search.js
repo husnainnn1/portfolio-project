@@ -3,6 +3,8 @@ const db = require('../db'); // Assuming you have a database connection file
 const router = express.Router();
 const bodyParser = require('body-parser');
 const app = express();
+
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var appData = {RestauramtName: "Speedy Bites"}
@@ -32,6 +34,8 @@ var appData = {RestauramtName: "Speedy Bites"}
     }
   });
 
+  // Mount the router
+app.use('/', router);
 
 //search result for extension search-topics
 /*router.post('/', function (req, res) {
