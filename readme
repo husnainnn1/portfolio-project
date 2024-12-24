@@ -1,1 +1,49 @@
-Admin123!
+# Project Name : Speedy Bites
+
+## Installation
+
+Provide instructions on how to install your project. Include any prerequisites or dependencies needed.
+
+Example:
+
+1. Install dependencies: `npm install`, `npm install ejs`, `npm install express`,`npm install mysql`, `npm install dotenv`, `npm install bcryptjs`
+
+## Usage
+
+1. Run the sql files
+
+To start the server, use the following command:
+
+```bash
+node index.js
+
+## Login Credentials
+Username: husnainn.s
+Password: 1234
+
+
+## Features
+
+1. User Registration
+Allow new users to register securely in the application.
+
+2. User Login and Logout
+Enable users to log in and log out of their accounts seamlessly.
+
+3. Homepage with Navigation
+Provide a central landing page with links to different sections of the app.
+
+4. About Page
+Include an informative page that provides details about the application and its purpose.
+
+5. Search Functionality
+Implement a feature allowing users to search the database for relevant data.
+
+6. Internal API Access
+Provide an internal API that exposes application data for external access or integration.
+
+7. Public API Integration
+Access and utilize data from publicly available APIs to enhance the application’s features.
+
+8. MySQL Database Storage
+Store and manage user and application data reliably in a MySQL database.
