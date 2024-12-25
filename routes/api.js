@@ -2,7 +2,7 @@ const express = require('express');
 const db = require('../db'); // Import the promise-based pool from db.js
 const router = express.Router();
 
-rrouter.get('/', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const title = req.query.title;
 
