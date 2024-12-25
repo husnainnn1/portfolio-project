@@ -2,21 +2,18 @@ const express = require('express');
 const db = require('../db'); // Import the promise-based pool from db.js
 const router = express.Router();
 
-router.get('/fastfoods', async (req, res) => {
+rrouter.get('/', async (req, res) => {
   try {
-    const title = req.query.title; // Get the title from query parameters
+    const title = req.query.title;
 
-    // If title is provided, search by title; otherwise, fetch all fast food items
     const query = title
       ? `SELECT * FROM fastfoods WHERE title LIKE ?`
       : `SELECT * FROM fastfoods`;
 
-    const params = title ? [`%${title}%`] : []; // Prepare query parameters
-
-    // Execute the query using async/await
+    const params = title ? [`%${title}%`] : [];
     const [results] = await db.query(query, params);
 
-    res.json(results); // Send the results as JSON
+    res.json(results);
   } catch (err) {
     console.error('Error fetching fast food items:', err);
     res.status(500).json({ error: 'Error fetching fast food items' });
@@ -24,6 +21,7 @@ router.get('/fastfoods', async (req, res) => {
 });
 
 module.exports = router;
+
 
 
 /* code before pool is used
