@@ -9,6 +9,7 @@ const FastFood = require('./models/fastFood'); // FastFood model.
 const jokeRouter = require('./routes/joke'); // Joke routes.
 const multer = require('multer'); // Middleware for handling file uploads.
 const upload = multer({ dest: 'uploads/' }); // Configure file upload destination.
+const searchRouter = require('./routes/search'); // Update the path to your search.js file
 
 const app = express(); // Initialize Express app.
 
@@ -47,11 +48,13 @@ app.use('/auth', require('./routes/auth'));
 
 // Route to render search page (GET request)
 app.get('/search', (req, res) => {
-  res.render('search', { results: [] }); // Render the page with an empty results array
+  res.render('search', { results: [] }); // Render the page with an empty results array.
 });
 
 // Route to handle search form submission (POST request)
-app.use('/search', require('./routes/search'));
+app.use('/search', searchRouter); // Mount search router for POST requests.
+
+
 
 // Render add food page.
 app.use('/addfood', (req, res) => res.render('food')); 
