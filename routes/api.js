@@ -1,4 +1,4 @@
-/*const express = require('express');
+const express = require('express');
 const db = require('../db'); // Import the promise-based pool from db.js
 const router = express.Router();
 
@@ -25,8 +25,8 @@ router.get('/fastfoods', async (req, res) => {
 
 module.exports = router;
 
-*/
 
+/* code before pool is used
 const express = require('express');
 const db = require('../db');
 const router = express.Router();
@@ -48,3 +48,4 @@ router.get('/fastfoods', (req, res) => {
 });
 
 module.exports = router;
+*/
