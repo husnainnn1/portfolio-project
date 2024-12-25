@@ -36,7 +36,7 @@ app.get('/about', (req, res) => res.render('about'));
 // Use joke routes.
 app.use('/jokes', jokeRouter); 
 // Use fast food routes.
-app.use('/fastfoods', fastFoodRoutes);
+app.use('/fastFood', fastFoodRoutes);
 // API routes for posts.
 app.use('/posts', require('./routes/api')); 
 // Authentication routes.
