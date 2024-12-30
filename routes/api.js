@@ -7,8 +7,8 @@ router.get('/', async (req, res) => {
     const title = req.query.title;
 
     const query = title
-      ? `SELECT * FROM fastfoods WHERE title LIKE ?`
-      : `SELECT * FROM fastfoods`;
+      ? `SELECT * FROM FastFoods WHERE title LIKE ?`
+      : `SELECT * FROM FastFoods`;
 
     const params = title ? [`%${title}%`] : [];
     const [results] = await db.query(query, params);
