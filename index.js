@@ -41,10 +41,7 @@ app.use('/fastFood', fastFoodRoutes);
 app.use('/posts', require('./routes/api')); 
 // Authentication routes.
 app.use('/auth', require('./routes/auth')); 
-// Search functionality routes.
-//app.use('/search', require('./routes/search')); 
-// Render search page.
-//app.use('/search', (req, res) => res.render('search')); 
+
 
 // Route to render search page (GET request)
 app.get('/search', (req, res) => {
