@@ -3,7 +3,8 @@ const express = require('express'); // Import Express framework.
 const session = require('express-session'); // Import session management.
 const bodyParser = require('body-parser'); // Parse incoming request bodies.
 const bcrypt = require('bcryptjs'); // For hashing passwords.
-const fastFoodRoutes = require('./routes/api'); // Fast food routes.
+const apiRoutes = require('./routes/api'); // Fast food routes.
+//const fastFoodRoutes = require('./routes/fastFood'); // Fast food routes.
 const db = require('./db'); // Database configuration.
 const FastFood = require('./models/fastFood'); // FastFood model.
 const jokeRouter = require('./routes/joke'); // Joke routes.
@@ -36,7 +37,8 @@ app.get('/about', (req, res) => res.render('about'));
 // Use joke routes.
 app.use('/jokes', jokeRouter); 
 // Use fast food routes.
-app.use('/fastFood', fastFoodRoutes);
+app.use('/fastFood', apiRoutes);
+//app.use('/fastFood', fastFoodRoutes)
 // API routes for posts.
 app.use('/posts', require('./routes/api')); 
 // Authentication routes.

@@ -20,6 +20,12 @@ const FastFood = sequelize.define('FastFood', {
   image: {
     type: DataTypes.STRING,
   },
-});
+},
+{
+  tableName: 'FastFoods', // Explicitly specify the table name
+  timestamps: true, // Enable createdAt and updatedAt fields
+}
+  
+);
 
 module.exports = FastFood;
