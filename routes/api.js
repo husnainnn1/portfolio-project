@@ -14,11 +14,23 @@ router.get('/', async (req, res) => {
     const [results] = await db.query(query, params);
 
     res.json(results);
+    //test
+    console.log('FastFood routes loaded');
+
+
   } catch (err) {
     console.error('Error fetching fast food items:', err);
     res.status(500).json({ error: 'Error fetching fast food items' });
   }
 });
+//test
+router.get('/test', (req, res) => {
+  res.send('FastFood test route is working');
+});
+
+//test
+console.log(require.resolve('./routes/fastFood'));
+
 
 module.exports = router;
 
