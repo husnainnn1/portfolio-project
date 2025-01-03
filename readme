@@ -21,7 +21,22 @@ node index.js
 Username: husnainn.s
 Password: 1234
 
+2. Alternative way of starting (e.g. on virtual server)
 
+To start the application. First clone the repository:
+--> git clone https://github.com/husnainnn1/portfolio-project.git          portfolio-project
+    cd portfolio-project
+
+Then install dependencies:
+--> npm install
+
+Afterwards set up the MySQL database if required:
+--> sudo mysql
+--> source create_db.sql
+--> source insert_test_ data.sql
+
+Finally start the server:
+--> node index.js
 ## Features
 
 1. User Registration
